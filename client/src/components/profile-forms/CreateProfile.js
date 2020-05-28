@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateOrCreateProfile } from '../../actions/profile';
-import profile from '../../reducers/profile';
 
 const CreateProfile = ({ updateOrCreateProfile, history }) => {
   const [formData, setFormData] = useState({
@@ -69,18 +68,6 @@ const CreateProfile = ({ updateOrCreateProfile, history }) => {
           </select>
           <small className='form-text'>
             Give us an idea of where you are at in your career
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Company'
-            name='company'
-            value={company}
-            onChange={(e) => onChange(e)}
-          />
-          <small className='form-text'>
-            Could be your own company or one you work for
           </small>
         </div>
         <div className='form-group'>

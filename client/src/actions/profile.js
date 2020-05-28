@@ -21,6 +21,9 @@ export const getCurrentProfile = () => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
+      type: CLEAR_PROFILE,
+    });
+    dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
@@ -53,6 +56,7 @@ export const getProfileByUserId = (userId) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    console.error(err);
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -221,6 +225,7 @@ export const deleteAccount = () => async (dispatch) => {
 
       dispatch(setAlert('Your account has been permanantly deleted'));
     } catch (err) {
+      console.error(err);
       dispatch({
         type: PROFILE_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status },
